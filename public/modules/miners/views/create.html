@@ -1,0 +1,50 @@
+<section data-ng-controller="MinersController">
+    <div class="page-header">
+        <h1>Add miner</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Miner01" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="pcname">PC Network Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pcname" id="pcname" class="form-control" placeholder="miner01.mynet.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="ip">Network IP Address</label>
+                    <div class="controls">
+                        <input type="text" ng-pattern="/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/" data-ng-model="ip" id="ip" class="form-control" placeholder="192.168.1.1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="port">CGMiner API Port</label>
+                    <div class="controls">
+                        <input type="number" min="1" max="65535" integer data-ng-model="port" id="port" class="form-control" placeholder="4028" required>
+                    </div>
+                </div>
+
+                <div class="form-group" data-ng-controller="GPIOSController" data-ng-init="find()">
+                    <label class="control-label" for="port">Miner RELAY</label>
+                    <div class="controls">
+                        <select class="form-control" data-ng-model="$parent.gpio" ng-options="g.name for g in gpios">
+                            <option value="">-- Select One --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Add Miner">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

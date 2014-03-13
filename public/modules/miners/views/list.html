@@ -1,0 +1,51 @@
+<section data-ng-controller="MinersController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Miners</h1>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>PC Name</th>
+            <th>IP Address</th>
+            <th>Status</th>
+            <th>Relay</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr data-ng-repeat="miner in miners">
+            <td ng-bind="miner.name"></td>
+            <td ng-bind="miner.pcname"></td>
+            <td ng-bind="miner.ip"></td>
+            <td ng-bind="miner.status"></td>
+            <td>
+               <div ng-if="miner.gpio">
+                   <div class="btn-group">
+                       <button class="btn btn-mini btn-info" ng-bind="miner.gpio.name">Off</button>
+                       <button class="btn dropdown-toggle btn-info" ng-class="{btn-info: !miner.status}" data-toggle="dropdown">
+                           <span class="caret"></span>
+                       </button>
+                       <ul class="dropdown-menu">
+                           <li><a href="#" >Reset</a></li>
+                           <li><a href="#" >Power Off</a></li>
+                       </ul>
+                   </div>
+               </div>
+
+            </td>
+
+            <td>
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="/#!/miners/{{miner._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-primary" data-ng-click="remove(miner);">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!miners || miners.length">
+    	No miners yet, why don't you <a href="/#!/miners/create">add one</a>?
+    </div>
+</section>

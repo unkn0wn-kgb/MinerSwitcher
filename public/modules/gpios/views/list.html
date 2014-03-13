@@ -1,0 +1,13 @@
+<section data-ng-controller="GPIOSController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>GPIOS</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="gpio in gpios" class="list-group-item">
+            <p class="list-group-item-text">{{gpio.name}}</p>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!gpios || gpios.length">
+    	No gpios, <a href="#" class="btn btn-default" data-ng-click="create()">populate</a> from default settings?
+    </div>
+</section>

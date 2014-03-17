@@ -5,6 +5,7 @@
 	"dependencies": {
 		"bootstrap": "latest",
 		"angular": "latest",
+        "sockjs":"latest",
 		"angular-cookies": "latest",
 		"angular-resource": "latest",
 		"angular-animate": "latest",

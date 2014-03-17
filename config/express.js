@@ -11,11 +11,31 @@ var express = require('express'),
 	consolidate = require('consolidate'),
 	swig = require('swig'),
 	path = require('path'),
+    sockjs  = require('sockjs'),
+    http = require('http'),
 	utilities = require('./utilities');
+
+// 1. Echo sockjs server
+var sockjs_opts = {sockjs_url: 'http://cdn.sockjs.org/sockjs-0.3.min.js'};
+
+var sockjs_echo = sockjs.createServer(sockjs_opts);
+sockjs_echo.on('connection', function(conn) {
+    conn.write("Socket Started");
+    conn.on('data', function(message) {
+        conn.write(message);
+    });
+});
 
 module.exports = function(db) {
 	// Initialize express app
 	var app = express();
+
+    var server = http.createServer(app);
+
+    sockjs_echo.installHandlers(server, {prefix:'/echo'});
+
+    console.log(' [*] Listening on 0.0.0.0:9999' );
+    server.listen(9000, '0.0.0.0');
 
 	// Initialize models
 	utilities.walk('./app/models', /(.*)\.(js$|coffee$)/).forEach(function(modelPath) {

@@ -72,6 +72,9 @@
 	<script type="text/javascript" src="/lib/angular-cookies/angular-cookies.js"></script>
 	<script type="text/javascript" src="/lib/angular-animate/angular-animate.js"></script>
 
+    <!-- WebSockets -->
+    <script type="text/javascript" src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+
 	<!--Angular UI-->
 	<script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.js"></script>
 	<script type="text/javascript" src="/lib/angular-ui-utils/ui-utils.js"></script>
@@ -88,6 +91,18 @@
 	<!--Livereload script rendered -->
 	<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
 	{% endif %}
+<script type="text/javascript">
+    var sock = new SockJS('http://localhost:9000/echo');
+    sock.onopen = function() {
+        console.log('open');
+    };
+    sock.onmessage = function(e) {
+        console.log('message', e.data);
+    };
+    sock.onclose = function() {
+        console.log('close');
+    };
+</script>
 </body>
 
 </html>

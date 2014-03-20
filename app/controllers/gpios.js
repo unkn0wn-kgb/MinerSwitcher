@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 	GPIO = mongoose.model('GPIO'),
 	_ = require('lodash');
 
+
 /**
  * Create a gpios
  */
@@ -116,4 +117,23 @@ exports.list = function(req, res) {
 			res.jsonp(gpios);
 		}
 	});
+};
+
+/**
+ * Reset GPIO
+ */
+exports.reset = function(req, res) {
+
+    var gpio = req.gpio;
+
+    gpio = _.extend(gpio, req.body);
+
+};
+
+
+/**
+ * PowerOff GPIO
+ */
+exports.poweroff = function(req, res) {
+
 };

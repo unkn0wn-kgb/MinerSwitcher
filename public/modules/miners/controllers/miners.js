@@ -1,8 +1,39 @@
 'use strict';
 
-angular.module('mean.miners').controller('MinersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Miners',
-    function($scope, $stateParams, $location, Authentication, Miners) {
+angular.module('mean.miners').controller('MinersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Miners','GPIOS','WatcherService',
+    function($scope, $stateParams, $location, Authentication, Miners, GPIOS, WatcherSrv) {
         $scope.authentication = Authentication;
+
+        $scope.$on('gpioUpdate',function(e,gpio){
+            console.log('GPIOS:',gpio);
+            for (var i in $scope.miners) {
+                var miner = $scope.miners[i];
+
+                if (typeof miner.gpio !== 'undefined' && miner.gpio !== null && miner.gpio._id === gpio._id) {
+
+                    $scope.$apply(function(){
+                        $scope.miners[i].gpio = gpio;
+                    });
+                }
+            }
+        });
+
+        $scope.IOReset = function(miner) {
+
+            console.log(miner);
+            GPIOS.reset(miner.gpio, function(response) {
+                response.length--;
+                $scope.gpios = response;
+            });
+
+        };
+
+        $scope.IOPowerOff = function(miner) {
+
+
+
+
+        };
 
         $scope.create = function() {
             var miner = new Miners({

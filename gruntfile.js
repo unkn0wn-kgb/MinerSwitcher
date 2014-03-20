@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 			all: {
 				src: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js', 'public/js/**/*.js', 'public/modules/**/*.js'],
 				options: {
-					jshintrc: true
+					jshintrc: true,
 				}
 			}
 		},

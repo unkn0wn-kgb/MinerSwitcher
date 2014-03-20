@@ -1,6 +1,6 @@
 'use strict';
 
-//Articles service used for articles REST endpoint
+//Miner service used for miners REST endpoint
 angular.module('mean.miners').factory('Miners', ['$resource', function($resource) {
     return $resource('miners/:minerId', {
         minerId: '@_id'

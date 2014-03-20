@@ -7,5 +7,7 @@ module.exports = function(app) {
 	// Article Routes
 	app.get('/gpios', gpios.list);
 	app.post('/gpios', users.requiresLogin, gpios.create);
+    app.put('/gpios/:gpioId', users.requiresLogin, gpios.reset);
+    app.put('/gpios/:gpioId', users.requiresLogin, gpios.poweroff);
 
 };

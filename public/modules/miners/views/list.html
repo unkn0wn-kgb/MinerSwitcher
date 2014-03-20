@@ -19,13 +19,13 @@
             <td>
                <div ng-if="miner.gpio">
                    <div class="btn-group">
-                       <button class="btn btn-mini btn-info" ng-bind="miner.gpio.name">Off</button>
-                       <button class="btn dropdown-toggle btn-info" ng-class="{btn-info: !miner.status}" data-toggle="dropdown">
+                       <button class="btn btn-mini" ng-class="{'btn-info': miner.gpio.value==0,'btn-success': miner.gpio.value==1}" ng-bind="miner.gpio.name">Off</button>
+                       <button class="btn dropdown-toggle" ng-class="{'btn-info': miner.gpio.value==0,'btn-success': miner.gpio.value==1}" data-toggle="dropdown">
                            <span class="caret"></span>
                        </button>
                        <ul class="dropdown-menu">
-                           <li><a href="#" >Reset</a></li>
-                           <li><a href="#" >Power Off</a></li>
+                           <li><a href="javascript:void(0);" data-ng-click="IOReset(miner)">Reset</a></li>
+                           <li><a href="javascript:void(0);" data-ng-click="IOPowerOff(miner)">Power Off</a></li>
                        </ul>
                    </div>
                </div>

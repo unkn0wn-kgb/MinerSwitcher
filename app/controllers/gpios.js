@@ -126,8 +126,6 @@ exports.reset = function(req, res) {
 
     var gpio = req.gpio;
 
-    gpio = _.extend(gpio, req.body);
-
 };
 
 
@@ -136,4 +134,17 @@ exports.reset = function(req, res) {
  */
 exports.poweroff = function(req, res) {
 
+};
+
+
+/**
+ * Article middleware
+ */
+exports.gpioByID = function(req, res, next, id) {
+    GPIO.load(id, function(err, gpio) {
+        if (err) return next(err);
+        if (!gpio) return next(new Error('Failed to load gpio ' + id));
+        req.gpio = gpio;
+        next();
+    });
 };

@@ -44,6 +44,15 @@ var GPIOSchema = new Schema({
     }
 });
 
+GPIOSchema.statics = {
+    load: function(id, cb) {
+        this.findOne({
+            _id: id
+        }).exec(cb);
+    }
+};
+
+
 GPIOSchema.pre('save',function(next) {
     var self = this;
     mongoose.models.GPIO.findOne({index : self.index},function(err, gpio) {

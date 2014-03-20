@@ -10,4 +10,8 @@ module.exports = function(app) {
     app.put('/gpios/:gpioId', users.requiresLogin, gpios.reset);
     app.put('/gpios/:gpioId', users.requiresLogin, gpios.poweroff);
 
+
+    // Finish by binding the article middleware
+    app.param('gpioId', gpios.gpioByID);
+
 };

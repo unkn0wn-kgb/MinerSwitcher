@@ -14,6 +14,7 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
                     $scope.$apply(function(){
                         $scope.miners[i].gpio = gpio;
                     });
+                    break;
                 }
             }
         });

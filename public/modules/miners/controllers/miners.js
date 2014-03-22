@@ -21,17 +21,17 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
 
         $scope.IOReset = function(miner) {
 
-            console.log(miner);
             GPIOS.reset(miner.gpio, function(response) {
-                response.length--;
-                $scope.gpios = response;
+
             });
 
         };
 
         $scope.IOPowerOff = function(miner) {
 
+            GPIOS.poweroff(miner.gpio, function(response) {
 
+            });
 
 
         };

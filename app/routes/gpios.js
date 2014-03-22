@@ -7,8 +7,8 @@ module.exports = function(app) {
 	// Article Routes
 	app.get('/gpios', gpios.list);
 	app.post('/gpios', users.requiresLogin, gpios.create);
-    app.put('/gpios/:gpioId', users.requiresLogin, gpios.reset);
-    app.put('/gpios/:gpioId', users.requiresLogin, gpios.poweroff);
+    app.post('/gpios/:gpioId', users.requiresLogin, gpios.reset);
+    app.post('/gpios/:gpioId', users.requiresLogin, gpios.poweroff);
 
 
     // Finish by binding the article middleware

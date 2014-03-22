@@ -42,14 +42,14 @@ exports.update = function(req, res) {
 	article = _.extend(article, req.body);
 
 	article.save(function(err) {
-		if (err) {
-			res.render('error', {
-				status: 500
-			});
-		} else {
-			res.jsonp(article);
-		}
-	});
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(article);
+        }
+    });
 };
 
 /**

@@ -126,6 +126,8 @@ exports.reset = function(req, res) {
 
     var gpio = req.gpio;
 
+
+
 };
 
 
@@ -133,6 +135,9 @@ exports.reset = function(req, res) {
  * PowerOff GPIO
  */
 exports.poweroff = function(req, res) {
+    var gpio = req.gpio;
+
+
 
 };
 

@@ -13,10 +13,12 @@ angular.module('mean.gpios').factory('GPIOS', ['$resource', function($resource) 
             isArray:true
         },
         reset: {
-            method: 'PUT'
+            method: 'POST',
+            isArray:true
         },
         poweroff: {
-            method: 'PUT'
+            method: 'POST',
+            isArray:true
         }
     });
 }]);

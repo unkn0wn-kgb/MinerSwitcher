@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
 	GPIO = mongoose.model('GPIO'),
+    ioport = require('pi-gpio'),
 	_ = require('lodash');
 
 
@@ -126,6 +127,19 @@ exports.reset = function(req, res) {
 
     var gpio = req.gpio;
 
+    if (!_.isNull(gpio.gpio)) {
+        ioport.open(gpio.gpio, 'output', function(err) {     // Open pin 16 for output
+            ioport.write(gpio.gpio, 1, function() {          // Set pin 16 high (1)
+
+                setTimeout(function(){
+                    ioport.write(gpio.gpio, 0, function() {
+                        // Close pin 16
+                        ioport.close(gpio.gpio);
+                    });
+                },200);
+            });
+        });
+    }
 
 
 };
@@ -137,7 +151,41 @@ exports.reset = function(req, res) {
 exports.poweroff = function(req, res) {
     var gpio = req.gpio;
 
+    if (!_.isNull(gpio.gpio)) {
+        ioport.open(gpio.gpio, 'output', function(err) {     // Open pin 16 for output
+            ioport.write(gpio.gpio, 1, function() {          // Set pin 16 high (1)
 
+                setTimeout(function(){
+                    ioport.write(gpio.gpio, 0, function() {
+                        // Close pin 16
+                        ioport.close(gpio.gpio);
+                    });
+                },5000);
+            });
+        });
+    }
+
+};
+
+/**
+ * PowerOn GPIO
+ */
+exports.poweron = function(req, res) {
+    var gpio = req.gpio;
+
+    if (!_.isNull(gpio.gpio)) {
+        ioport.open(gpio.gpio, 'output', function(err) {     // Open pin 16 for output
+            ioport.write(gpio.gpio, 1, function() {          // Set pin 16 high (1)
+
+                setTimeout(function(){
+                    ioport.write(gpio.gpio, 0, function() {
+                        // Close pin
+                        ioport.close(gpio.gpio);
+                    });
+                },800);
+            });
+        });
+    }
 
 };
 

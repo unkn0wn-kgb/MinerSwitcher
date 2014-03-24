@@ -27,9 +27,18 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
 
         };
 
-        $scope.IOPowerOff = function(miner) {
+        $scope.IOPowerOn = function(miner) {
 
             GPIOS.poweroff(miner.gpio, function(response) {
+
+            });
+
+
+        };
+
+        $scope.IOPowerOff = function(miner) {
+
+            GPIOS.poweron(miner.gpio, function(response) {
 
             });
 

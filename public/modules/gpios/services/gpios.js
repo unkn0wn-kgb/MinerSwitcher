@@ -19,6 +19,11 @@ angular.module('mean.gpios').factory('GPIOS', ['$resource', function($resource) 
         poweroff: {
             method: 'POST',
             isArray:true
+        },
+        poweron: {
+            method: 'POST',
+            isArray:true
         }
+
     });
 }]);

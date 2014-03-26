@@ -33,7 +33,6 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
 
             });
 
-
         };
 
         $scope.IOPowerOff = function(miner) {

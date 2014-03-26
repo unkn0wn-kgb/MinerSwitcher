@@ -14,15 +14,15 @@ angular.module('mean.gpios').factory('GPIOS', ['$resource', function($resource) 
         },
         reset: {
             method: 'POST',
-            isArray:true
+            isArray:false
         },
         poweroff: {
             method: 'POST',
-            isArray:true
+            isArray:false
         },
         poweron: {
             method: 'POST',
-            isArray:true
+            isArray:false
         }
 
     });

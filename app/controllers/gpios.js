@@ -13,7 +13,25 @@ var mongoose = require('mongoose'),
  * Create a gpios
  */
 exports.create = function(req, res) {
-
+/*var pinMapping = {
+ "3": 0,
+ "5": 1,
+ "7": 4,
+ "8": 14,
+ "10": 15,
+ "11": 17,
+ "12": 18,
+ "13": 21,
+ "15": 22,
+ "16": 23,
+ "18": 24,
+ "19": 10,
+ "21": 9,
+ "22": 25,
+ "23": 11,
+ "24": 8,
+ "26": 7
+ };*/
     //Generate GPIOS
     GPIO.find().sort('-index').exec(function(err, gpios) {
         if (err) {
@@ -27,13 +45,13 @@ exports.create = function(req, res) {
                 var aryGPIOS = [{
                     name: 'RELAY 1',
                     index: 0,
-                    gpio: 25,
+                    gpio: 22,
                     out: true,
                     value:0
                 },{
                     name: 'RELAY 2',
                     index: 1,
-                    gpio: 17,
+                    gpio: 11,
                     out: true,
                     value:0
                 },{
@@ -45,19 +63,19 @@ exports.create = function(req, res) {
                 },{
                     name: 'RELAY 4',
                     index: 3,
-                    gpio: 22,
+                    gpio: 15,
                     out: true,
                     value:0
                 },{
                     name: 'RELAY 5',
                     index: 4,
-                    gpio: 23,
+                    gpio: 11,
                     out: true,
                     value:0
                 },{
                     name: 'RELAY 6',
                     index: 5,
-                    gpio: 24,
+                    gpio: 18,
                     out: true,
                     value:0
                 }];
@@ -135,6 +153,7 @@ exports.reset = function(req, res) {
                     ioport.write(gpio.gpio, 0, function() {
                         // Close pin 16
                         ioport.close(gpio.gpio);
+                        res.jsonp({success:true});
                     });
                 },200);
             });
@@ -159,6 +178,7 @@ exports.poweroff = function(req, res) {
                     ioport.write(gpio.gpio, 0, function() {
                         // Close pin 16
                         ioport.close(gpio.gpio);
+                        res.jsonp({success:true});
                     });
                 },5000);
             });
@@ -181,6 +201,7 @@ exports.poweron = function(req, res) {
                     ioport.write(gpio.gpio, 0, function() {
                         // Close pin
                         ioport.close(gpio.gpio);
+                        res.jsonp({success:true});
                     });
                 },800);
             });

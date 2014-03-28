@@ -180,7 +180,7 @@ exports.poweroff = function(req, res) {
                         ioport.close(gpio.gpio);
                         res.jsonp({success:true});
                     });
-                },5000);
+                },10000);
             });
         });
     }

@@ -5,9 +5,9 @@ var path = require('path'),
 
 module.exports = {
 	app: {
-		title: 'MEAN.JS',
-		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-		keywords: 'mongodb, express, angularjs, node.js, mongoose, passport'
+		title: 'MinerSwitcher',
+		description: 'Raspberry PI and Nodejs miners internet reset stack',
+		keywords: ''
 	},
 	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI,
 	root: rootPath,

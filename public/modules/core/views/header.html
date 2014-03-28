@@ -7,11 +7,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="/#!/" class="navbar-brand">MEAN.JS</a>
+        <a href="/#!/" class="navbar-brand">Miner Switcher</a>
     </div>
     <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-        <ul class="nav navbar-nav" data-ng-show="authentication.user">
-            <li data-ng-repeat="item in menu" data-ng-show="authentication.user" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
+        <ul class="nav navbar-nav" data-ng-hide="!authentication.user">
+            <li data-ng-repeat="item in menu" ui-route="{{item.uiRoute}}" ng-class="{active: $uiRoute}">
                 <a href="/#!/{{item.link}}">{{item.title}}</a>
             </li>
         </ul>
@@ -24,10 +24,10 @@
                 <a href="/#!/signin">Signin</a>
             </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+        <ul class="nav navbar-nav navbar-right" data-ng-hide="!authentication.user">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    {{authentication.user.displayName}} <b class="caret"></b>
+                    {{authentication.user.displayName}}<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                     <li>

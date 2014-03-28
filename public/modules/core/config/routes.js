@@ -12,5 +12,6 @@ angular.module('mean.core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/',
 			templateUrl: 'modules/core/views/home.html'
 		});
+
 	}
 ]);

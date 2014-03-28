@@ -31,7 +31,8 @@ angular.module('mean.users').controller('AuthenticationController', ['$scope', '
         $scope.me = function() {
             $http.get('/users/me').success(function(data) {
                 //If successful we assign the data to the global user model
-                $scope.authentication.user = data;
+
+                $scope.authentication.user = angular.fromJson(data);
 
             }).error(function(data) {
                     $scope.error = data.message;

@@ -4,15 +4,9 @@ angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentic
     function($scope, Authentication) {
         $scope.authentication = Authentication;
 
+        //$scope.displayName = $scope.authentication.user.displayName;
+
         $scope.menu = [{
-            title: 'Articles',
-            link: 'articles',
-            uiRoute: '/articles'
-        }, {
-            title: 'New Article',
-            link: 'articles/create',
-            uiRoute: '/articles/create'
-        }, {
             title: 'Miners',
             link: 'miners',
             uiRoute: '/miners'
@@ -27,5 +21,6 @@ angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentic
         }];
 
         $scope.isCollapsed = false;
+
     }
 ]);

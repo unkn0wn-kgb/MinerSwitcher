@@ -53,7 +53,7 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
                 gpio:this.gpio
             });
             miner.$save(function(response) {
-                $location.path('miners/' + response._id);
+                $location.path('miners');
             });
 
             this.name = '';
@@ -82,7 +82,7 @@ angular.module('mean.miners').controller('MinersController', ['$scope', '$stateP
             var miner = $scope.miner;
 
             miner.$update(function() {
-                $location.path('miners/' + miner._id);
+                $location.path('miners');
             });
         };
 

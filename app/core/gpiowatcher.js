@@ -9,7 +9,7 @@ var wssrv = require('../../config/wsserver'),
 var _gpionotify = function(){
 
     var value = 0;
-    setInterval(function(){
+    /*setInterval(function(){
 
         GPIO.find().sort('-index').exec(function(err, gpios) {
             if (!err) {
@@ -41,7 +41,7 @@ var _gpionotify = function(){
 
 
 
-    },5000);
+    },5000);*/
 
 };
 

@@ -80,14 +80,14 @@ exports.create = function(req, res) {
                     value:0
                 }];
 
-                GPIO.create(aryGPIOS,function(err,g0,g1,g2,g3,g4,g5,g6){
+                GPIO.create(aryGPIOS,function(err,g0,g1,g2,g3,g4,g5){
                     if (err) {
                         res.render('error', {
                             status: 500
                         });
                     } else {
                         var aryrt = [];
-                        aryrt.push(g0,g1,g2,g3,g4,g5,g6);
+                        aryrt.push(g0,g1,g2,g3,g4,g5);
                         res.jsonp(aryrt);
                     }
                 });

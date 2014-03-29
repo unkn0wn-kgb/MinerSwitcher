@@ -69,7 +69,7 @@ exports.create = function(req, res) {
                 },{
                     name: 'RELAY 5',
                     index: 4,
-                    gpio: 27,
+                    gpio: 16,
                     out: true,
                     value:0
                 },{

@@ -34,6 +34,7 @@
 		"passport-google-oauth": "latest",
 		"lodash": "latest",
 		"forever": "latest",
+        "pi-gpio": "latest",
 		"bower": "latest",
 		"grunt": "latest",
 		"grunt-cli": "latest",
